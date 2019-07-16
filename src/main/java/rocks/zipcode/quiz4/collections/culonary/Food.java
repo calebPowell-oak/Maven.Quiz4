@@ -11,7 +11,7 @@ public class Food {
     List<Spice> spices = new ArrayList<>();
 
     public List<Spice> getAllSpices() {
-        return null;
+        return spices;
     }
 
     public <SpiceType extends Class<? extends Spice>> Map<SpiceType, Integer> getSpiceCount() {
@@ -19,5 +19,6 @@ public class Food {
     }
 
     public void applySpice(Spice spice) {
+        spices.add(spice);
     }
 }
