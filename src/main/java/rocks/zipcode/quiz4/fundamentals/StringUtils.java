@@ -1,19 +1,30 @@
 package rocks.zipcode.quiz4.fundamentals;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * @author leon on 21/12/2018.
  */
 public class StringUtils {
     public static Character getMiddleCharacter(String string) {
-        return null;
+        return string.charAt(string.length()/2);
     }
 
     public static String capitalizeMiddleCharacter(String str) {
-        return null;
+        return midCase(str, true);
+    }
+
+    private static String midCase(String str, boolean upper){
+        String[] arr = str.split("");
+        arr[str.length()/2] = upper? arr[str.length()/2].toUpperCase() : arr[str.length()/2].toLowerCase();
+        StringBuilder b = new StringBuilder();
+        for(String x : arr){b.append(x);}
+        return b.toString();
     }
 
     public static String lowerCaseMiddleCharacter(String str) {
-        return null;
+        return midCase(str, false);
     }
 
     public static Boolean isIsogram(String str) {
