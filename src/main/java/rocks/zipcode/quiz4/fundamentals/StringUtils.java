@@ -2,6 +2,7 @@ package rocks.zipcode.quiz4.fundamentals;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 /**
  * @author leon on 21/12/2018.
@@ -40,6 +41,16 @@ public class StringUtils {
     }
 
     public static String invertCasing(String str) {
-        return null;
+        char[] arr = str.toCharArray();
+        int count = 0;
+        for(char x : arr){
+            if(Character.isUpperCase(x)){
+                arr[count] = Character.toLowerCase(x);
+            } else {
+                arr[count] = Character.toUpperCase(x);
+            }
+            count++;
+        }
+        return new String(arr);
     }
 }
