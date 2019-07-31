@@ -1,7 +1,9 @@
 package rocks.zipcode.quiz4.fundamentals;
 
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -29,15 +31,31 @@ public class StringUtils {
     }
 
     public static Boolean isIsogram(String str) {
-        return null;
+        Set<String> set = new HashSet<>(Arrays.asList(str.split("")));
+        return set.size() == str.length();
     }
 
     public static Boolean hasDuplicateConsecutiveCharacters(String str) {
-        return null;
+        char[] arr = str.toCharArray();
+        char last = arr[0];
+        for(int i = 1; i < str.length(); i++){
+            if(arr[i] == last) return true;
+            last = arr[i];
+        }
+        return false;
     }
 
     public static String removeConsecutiveDuplicateCharacters(String str) {
-        return null;
+        List<String> letters = new ArrayList<>(Arrays.asList(str.split("")));
+        for(int i = 0; i < letters.size() - 1;){
+            if(letters.get(i).equals(letters.get(i+1))){
+                letters.remove(i);
+                letters.remove(i);
+            } else {
+                i++;
+            }
+        }
+        return String.join("", letters);
     }
 
     public static String invertCasing(String str) {
